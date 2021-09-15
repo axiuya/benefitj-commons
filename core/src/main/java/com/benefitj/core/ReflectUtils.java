@@ -17,6 +17,13 @@ import java.util.function.Predicate;
  */
 public class ReflectUtils {
 
+
+  public static final Predicate<Field> NOT_STATIC_FINAL = f ->
+      !(Modifier.isStatic(f.getModifiers()) || Modifier.isFinal(f.getModifiers()));
+
+  public static final Predicate<Field> NOT_STATIC_FINAL_VOLATILE = f ->
+      NOT_STATIC_FINAL.test(f) || !Modifier.isVolatile(f.getModifiers());
+
   /**
    * 判断是否被static和final修饰
    *

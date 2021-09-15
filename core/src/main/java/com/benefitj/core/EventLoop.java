@@ -250,14 +250,24 @@ public class EventLoop implements ScheduledExecutorService {
 
   }
 
-  public static void sleep(int delay) {
-    sleep(delay, TimeUnit.SECONDS);
+  public static void sleep(long duration) {
+    sleep(duration, TimeUnit.MILLISECONDS);
   }
 
-  public static void sleep(int delay, TimeUnit unit) {
+  public static void sleepSecond(long duration) {
+    sleep(duration, TimeUnit.SECONDS);
+  }
+
+  public static void sleepMinute(long duration) {
+    sleep(duration, TimeUnit.MINUTES);
+  }
+
+  public static void sleep(long duration, TimeUnit unit) {
     try {
-      unit.sleep(delay);
-    } catch (InterruptedException ignore) {}
+      unit.sleep(duration);
+    } catch (InterruptedException e) {
+      throw new IllegalStateException(e);
+    }
   }
 
   public static String threadName() {
