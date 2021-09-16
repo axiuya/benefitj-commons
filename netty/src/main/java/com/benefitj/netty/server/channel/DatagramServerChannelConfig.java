@@ -397,11 +397,13 @@ public class DatagramServerChannelConfig extends DefaultDatagramChannelConfig im
    * a {@link ChannelInboundHandler#channelRead(ChannelHandlerContext, Object) channelRead()} event.
    * If this value is greater than 1, an event loop might attempt to read multiple times to procure multiple messages.
    */
+  @Deprecated
   @Override
   public int getMaxMessagesPerRead() {
     return super.getMaxMessagesPerRead();
   }
 
+  @Deprecated
   @Override
   public DatagramServerChannelConfig setMaxMessagesPerRead(int maxMessagesPerRead) {
     super.setMaxMessagesPerRead(maxMessagesPerRead);
