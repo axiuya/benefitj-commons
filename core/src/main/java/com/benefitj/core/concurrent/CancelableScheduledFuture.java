@@ -10,12 +10,12 @@ import java.util.concurrent.*;
  *
  * @param <V>
  */
-public class CanceableScheduledFuture<V> implements ScheduledFuture<V>, AttributeMap {
+public class CancelableScheduledFuture<V> implements ScheduledFuture<V>, AttributeMap {
 
   private final ScheduledFuture<V> original;
   private final Map<String, Object> attributes = new ConcurrentHashMap<>();
 
-  public CanceableScheduledFuture(ScheduledFuture<V> original) {
+  public CancelableScheduledFuture(ScheduledFuture<V> original) {
     this.original = original;
   }
 
